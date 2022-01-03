@@ -1,18 +1,12 @@
-/****************************************
- * Include Libraries
- ****************************************/
 #include <WiFi.h>
 #include <PubSubClient.h>
 
-#define WIFISSID "Leora utama no 53 EXT" // Put your Wifi SSID here
-#define PASSWORD "12345678" // Put your WIFI password here
-#define TOKEN "BBFF-LatbtUnHP39iw0Fcm1WBWG7i0RByBU" // Put your Ubidots' TOKEN available on API credentials 
+#define WIFISSID "Leora utama no 53 EXT" 
+#define PASSWORD "12345678" 
+#define TOKEN "BBFF-LatbtUnHP39iw0Fcm1WBWG7i0RByBU" // Ubidots' TOKEN available on API credentials 
 #define MQTT_CLIENT_NAME "12092001A" // MQTT client Name, please enter your own 8-12 alphanumeric character ASCII string; 
                                            //it should be a random and unique ascii string and different from all other devices
 
-/****************************************
- * Define Constants
- ****************************************/
 #define VARIABLE_LABEL "sensor" // Assign the variable label
 #define DEVICE_LABEL "esp32" // Assig the device label
  
@@ -32,9 +26,6 @@ char topic[150];
 // Space to store values to send
 char str_sensor[10];
  
-/****************************************
- * Auxiliar Functions
- ****************************************/
 WiFiClient ubidots;
 PubSubClient client(ubidots);
  
@@ -64,9 +55,6 @@ void reconnect() {
   }
 }
  
-/****************************************
- * Main Functions
- ****************************************/
 void setup() {
   Serial.begin(115200);
   WiFi.begin(WIFISSID, PASSWORD);
